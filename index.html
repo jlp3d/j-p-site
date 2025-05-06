@@ -173,7 +173,56 @@
     @keyframes slideUp {
       to { transform: translateY(0); }
     }
-  </style>
+  @media only screen and (max-width: 600px) {
+  nav {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.4rem !important;
+  }
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+  nav a {
+    flex: 0 0 auto;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 0.25rem;
+  }
+  .hero {
+    padding: 1rem 1rem 0.5rem;
+  }
+  #intro-text {
+    font-size: 2.2rem;
+  }
+  .terminal {
+    width: 95%;
+    font-size: 0.9rem;
+  }
+  #role-text {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .phrase-box {
+    width: 56px;
+    height: 56px;
+  }
+  .phrase-box img {
+    width: 28px;
+    height: 28px;
+  }
+}
+</style>
   <script>
     // JavaScript logic will be placed here in the next update
   </script>
