@@ -212,6 +212,23 @@
     }
     @media only screen and (max-width: 600px) {
   nav {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.4rem !important;
+  }
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+  nav a {
+    flex: 0 0 auto;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  nav {
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
