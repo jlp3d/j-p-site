@@ -222,6 +222,15 @@
     height: 28px;
   }
 }
+  .mobile-spacer {
+    height: 2rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .mobile-spacer {
+      height: 0.5rem;
+    }
+  }
 </style>
   <script>
     // JavaScript logic will be placed here in the next update
@@ -254,7 +263,7 @@ jonathanpedrero@website ~ % <span id="terminal-typewriter"></span><span class="c
     </div>
     <div class="divider"></div>
     <div id="role-text"></div>
-    <div style="height: 2rem;"></div>
+    <div class="mobile-spacer"></div>
   </section>
   <section id="about" style="display: none; text-align: center; padding: 4rem 2rem;">
     <h2>About Me</h2>
