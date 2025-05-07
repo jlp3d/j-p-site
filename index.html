@@ -348,7 +348,7 @@ jonathanpedrero@website ~ % `;
     sel.addRange(range);
   }
       const rotatingText = document.getElementById('rotating-monotext');
-      const roles = ["Technology Enthusiast", "Problem Solver", "Senior Systems Administrator", "Security Advocate"];
+      const roles = ["Technology Enthusiast", "Problem Solver", "Senior Systems Administrator", "Security Advocate", "Part-time Nerd"];
       let roleIndex = 0;
 
       function cycleRoles() {
@@ -361,10 +361,16 @@ jonathanpedrero@website ~ % `;
         }, 1000);
       }
 
-      setTimeout(() => {
-        cycleRoles();
-        setInterval(cycleRoles, 3500);
-      }, headerFooterDelay + phraseDelay + 800);
+      const roleObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      cycleRoles();
+      setInterval(cycleRoles, 3500);
+      roleObserver.disconnect();
+    }
+  });
+});
+roleObserver.observe(document.getElementById('terminal-window'));
       const roleText = document.getElementById('role-text');
       const terminalWindow = document.getElementById('terminal-window');
       const navLinks = document.querySelectorAll('nav a');
