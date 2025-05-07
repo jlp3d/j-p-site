@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jonathan Pedrero</title>
@@ -44,12 +44,15 @@
       font-family: 'Pacifico', cursive;
       margin: 0;
       font-size: 1.25rem;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
     }
     nav {
       display: flex;
       gap: 1.5rem;
     }
     nav a {
+
+      font-family: 'TT Ramilas', sans-serif;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       font-size: 1.2rem;
       padding: 0.25rem 0.5rem;
@@ -58,13 +61,16 @@
       color: #fff;
       text-decoration: none;
       font-weight: 500;
+    
+      background-color: transparent;
+      transition: background-color 0.3s ease;
     }
     nav a.active {
       border-bottom: 3px solid #fff;
       background-color: #444;
     }
     nav a:hover {
-      text-decoration: underline;
+      background-color: #555;
       transform: translateY(-2px);
     }
     .hero {
@@ -72,7 +78,7 @@
       text-align: center;
     }
     #intro-text {
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Playfair Display', serif;
       margin-top: 0.5rem;
       margin-bottom: 0.25rem;
       font-size: 4.2rem;
@@ -250,6 +256,10 @@
 
 
 
+header h1:hover {
+  transform: scale(1.1);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
 </style>
   
 </head>
@@ -269,7 +279,7 @@
   </header>
   <section id="home" class="hero">
     <h2 id="intro-text"></h2>
-    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: 0;"></div>
+    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: 0;; color: #888"></div>
     <div class="divider"></div>
     <div class="terminal" id="terminal-window">
       <div class="controls">
@@ -312,7 +322,7 @@ Last update: Tue May 6, 2025<br>
 
     document.addEventListener('DOMContentLoaded', () => {
       const rotatingText = document.getElementById('rotating-monotext');
-      const roles = ["Technology Enthusiast", "Problem Solver", "Senior Sys Admin", "Security Advocate"];
+      const roles = ["Technology Enthusiast", "Problem Solver", "Senior Systems Administrator", "Security Advocate"];
       let roleIndex = 0;
 
       function cycleRoles() {
@@ -328,7 +338,7 @@ Last update: Tue May 6, 2025<br>
       setTimeout(() => {
         cycleRoles();
         setInterval(cycleRoles, 3500);
-      }, headerFooterDelay + phraseDelay + 3 * 800 + 1000);
+      }, headerFooterDelay + phraseDelay + 800);
       const roleText = document.getElementById('role-text');
       const terminalWindow = document.getElementById('terminal-window');
       const navLinks = document.querySelectorAll('nav a');
