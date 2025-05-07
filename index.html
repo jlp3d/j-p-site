@@ -133,9 +133,12 @@
       height: 36px;
     }
     .terminal:hover {
-      box-shadow: 0 0 10px rgba(0, 255, 0, 0.3), 0 0 20px rgba(0, 204, 0, 0.2), 0 0 30px rgba(0, 170, 0, 0.15);
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 204, 0, 0.3), 0 0 45px rgba(0, 170, 0, 0.25);
+      transform: scale(1.05);
     }
     .terminal {
+      max-width: 360px;
+      transition: all 0.4s ease;
       margin: 2rem auto;
       width: 460px;
       background-color: #1e1e1e;
@@ -184,6 +187,10 @@
       to { transform: translateY(0); }
     }
   @media only screen and (max-width: 600px) {
+  .terminal {
+    margin-left: auto;
+    margin-right: auto;
+  }
   nav {
     flex-wrap: nowrap !important;
     justify-content: center !important;
@@ -278,7 +285,7 @@ header h1:hover {
     </nav>
   </header>
   <section id="home" class="hero">
-    <h2 id="intro-text"></h2>
+    <h2 id="intro-text" style="font-family: 'TT Ramilas', sans-serif;"></h2>
     <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: 0;; color: #888"></div>
     <div class="divider"></div>
     <div class="terminal" id="terminal-window">
@@ -289,7 +296,7 @@ header h1:hover {
       </div>
       <div class="output">
 Last update: Tue May 6, 2025<br>
-<span id="terminal-typewriter"></span><span class="cursor small">|</span>
+<span id="terminal-typewriter"></span><span id="terminal-input" contenteditable="true" spellcheck="false" style="outline: none; display: inline-block; min-width: 1ch; caret-color: #00FF00; white-space: pre-wrap; overflow-wrap: break-word;" onkeydown="if(event.key==='Enter'){event.preventDefault();}"> </span>
       </div>
     </div>
     <div class="divider"></div>
@@ -318,11 +325,14 @@ Last update: Tue May 6, 2025<br>
   <script>
     const headerFooterDelay = 2600;
     const phraseDelay = 500;
-    const terminalText = `Home  🏠 | Introduction & Contact
-About me 🧔🏻‍♂️ | Page Information & Biography
-Education 📝 | College & Certifications
-Experience 💻 | Work History & Achievements
-Skills 🛠️ | Administration & Skillset`;
+    const terminalText = `Type tab name & press Enter:
+Home 🏠
+About Me 🧔🏻‍♂️
+Education 📝
+Experience 💻 
+Skills 🛠️
+
+jonathanpedrero@website ~ % `;
 
     document.addEventListener('DOMContentLoaded', () => {
       const rotatingText = document.getElementById('rotating-monotext');
@@ -399,13 +409,13 @@ Skills 🛠️ | Administration & Skillset`;
         setTimeout(() => {
           let i = 0;
           const interval = setInterval(() => {
-            if (i < terminalText.length) {
+          if (i < terminalText.length) {
               typeTarget.textContent += terminalText.charAt(i);
               i++;
             } else {
               clearInterval(interval);
             }
-          }, 60);
+          }, 36);
         }, headerFooterDelay + phraseDelay + 3 * 800 + 1000);
       }
 
@@ -429,6 +439,37 @@ Skills 🛠️ | Administration & Skillset`;
         });
       });
     });
-  </script>
+  document.getElementById('terminal-input').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const inputText = this.innerText.trim().toLowerCase();
+    const sectionMap = {
+      'home': 'home',
+      'about me': 'about',
+      'education': 'education',
+      'experience': 'experience',
+      'skills': 'skills'
+    };
+    const sectionId = sectionMap[inputText];
+    if (sectionId) {
+      const targetSection = document.getElementById(sectionId);
+      const allSections = document.querySelectorAll('section');
+      allSections.forEach(section => {
+        if (section.id === sectionId) {
+          section.style.display = 'block';
+          section.style.opacity = 0;
+          setTimeout(() => {
+            section.style.transition = 'opacity 0.5s ease-in-out';
+            section.style.opacity = 1;
+          }, 50);
+        } else {
+          section.style.display = 'none';
+          section.style.opacity = 0;
+        }
+      });
+    }
+  }
+});
+</script>
 </body>
 </html>
