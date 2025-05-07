@@ -190,6 +190,8 @@
   .terminal {
     margin-left: auto;
     margin-right: auto;
+    width: 75%;
+    font-size: 0.9rem;
   }
   nav {
     flex-wrap: nowrap !important;
@@ -335,6 +337,16 @@ Skills 🛠️
 jonathanpedrero@website ~ % `;
 
     document.addEventListener('DOMContentLoaded', () => {
+  const terminalInput = document.getElementById('terminal-input');
+  if (terminalInput) {
+    terminalInput.focus();
+    const range = document.createRange();
+    const sel = window.getSelection();
+    range.selectNodeContents(terminalInput);
+    range.collapse(false);
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
       const rotatingText = document.getElementById('rotating-monotext');
       const roles = ["Technology Enthusiast", "Problem Solver", "Senior Systems Administrator", "Security Advocate"];
       let roleIndex = 0;
