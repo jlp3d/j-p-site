@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jonathan Pedrero</title>
@@ -40,6 +41,7 @@
       to { transform: translateY(0); }
     }
     header h1 {
+      font-family: 'Pacifico', cursive;
       margin: 0;
       font-size: 1.25rem;
     }
@@ -70,8 +72,9 @@
       text-align: center;
     }
     #intro-text {
+      font-family: 'Pacifico', cursive;
       margin-bottom: 0.5rem;
-      font-size: 3rem;
+      font-size: 4.2rem;
       overflow: hidden;
       white-space: nowrap;
       display: inline-block;
@@ -241,13 +244,14 @@
   50% { opacity: 0; }
 }
 </style>
-  <script>
-    // JavaScript logic will be placed here in the next update
-  </script>
+  
 </head>
 <body>
   <header>
-    <h1>Jonathan Pedrero</h1>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <img src="JP.png" alt="Jonathan Pedrero headshot" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+      <h1>Jonathan Pedrero</h1>
+    </div>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About Me</a>
@@ -258,6 +262,7 @@
   </header>
   <section id="home" class="hero">
     <h2 id="intro-text"></h2>
+    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: 0;"></div>
     <div class="divider"></div>
     <div class="terminal" id="terminal-window">
       <div class="controls">
@@ -299,6 +304,24 @@ Last update: Tue May 6, 2025<br>
     const terminalText = "Welcome to my personal website! Use the navbar to read about me, education, experience, and skills. Click contacts below to connect.";
 
     document.addEventListener('DOMContentLoaded', () => {
+      const rotatingText = document.getElementById('rotating-monotext');
+      const roles = ["Technology Enthusiast", "Problem Solver", "Senior Sys Admin", "Security Advocate"];
+      let roleIndex = 0;
+
+      function cycleRoles() {
+        if (!rotatingText) return;
+        rotatingText.style.opacity = '0';
+        setTimeout(() => {
+          rotatingText.textContent = roles[roleIndex];
+          rotatingText.style.opacity = '1';
+          roleIndex = (roleIndex + 1) % roles.length;
+        }, 1000);
+      }
+
+      setTimeout(() => {
+        cycleRoles();
+        setInterval(cycleRoles, 3500);
+      }, headerFooterDelay + phraseDelay + 3 * 800 + 1000);
       const roleText = document.getElementById('role-text');
       const terminalWindow = document.getElementById('terminal-window');
       const navLinks = document.querySelectorAll('nav a');
@@ -306,7 +329,7 @@ Last update: Tue May 6, 2025<br>
       const typeTarget = document.getElementById('terminal-typewriter');
       const introText = document.getElementById('intro-text');
 
-      const introPhrase = "Hi, I'm Jonathan.";
+      const introPhrase = "Jonathan Pedrero";
       let introIndex = 0;
 
       function typeIntro() {
