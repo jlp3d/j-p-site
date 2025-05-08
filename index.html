@@ -109,11 +109,14 @@
 
 
     .divider {
-      height: 1px;
-      background-color: #444;
-      margin: 1rem auto;
-      width: 60%;
-    }
+  height: 1px;
+  background-color: #444;
+  margin: 1rem auto;
+  width: 60%;
+  opacity: 0;
+  animation: fadeInDivider 4s ease forwards;
+  animation-delay: 3s;
+}
     #role-text {
   font-size: 1.75rem;
   display: flex;
@@ -323,6 +326,12 @@ header h1:hover {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@keyframes fadeInDivider {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+  to { opacity: 1; }
+}
 </style>
   
 </head>
@@ -342,7 +351,7 @@ header h1:hover {
   </header>
   <section id="home" class="hero" style="height: calc(100vh - 160px); display: flex; flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; padding-top: 8vh; padding-bottom: 2vh;">
     <h2 id="intro-text" style="font-family: 'TT Ramilas', sans-serif; margin-bottom: 0;"></h2>
-    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: -0.75rem; color: #666"></div>
+    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: -0.75rem; color: #666; visibility: hidden;"></div>
     <div class="divider"></div>
     <div class="terminal" id="terminal-window">
       <div class="controls">
@@ -403,7 +412,7 @@ jonathanpedrero@website ~ % `;
         rotatingText.style.opacity = '0';
         setTimeout(() => {
           rotatingText.textContent = roles[roleIndex];
-          rotatingText.style.opacity = '1';
+          rotatingText.style.visibility = 'visible'; rotatingText.style.opacity = '1';
           roleIndex = (roleIndex + 1) % roles.length;
         }, 1000);
       }
@@ -411,8 +420,13 @@ jonathanpedrero@website ~ % `;
       const roleObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      cycleRoles();
-      setInterval(cycleRoles, 3500);
+      setTimeout(() => {
+        rotatingText.textContent = roles[0];
+        rotatingText.style.visibility = 'visible';
+        rotatingText.style.opacity = '1';
+        roleIndex = 1;
+        setInterval(cycleRoles, 3500);
+      }, headerFooterDelay + 1000);
       roleObserver.disconnect();
     }
   });
