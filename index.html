@@ -481,7 +481,7 @@ roleObserver.observe(document.getElementById('terminal-window'));
         if (terminalWindow) {
           terminalWindow.classList.add('visible');
         }
-      }, headerFooterDelay + phraseDelay - 1000);
+      }, headerFooterDelay + phraseDelay - 2000);
 
       if (typeTarget) {
         setTimeout(() => {
@@ -494,7 +494,7 @@ roleObserver.observe(document.getElementById('terminal-window'));
               clearInterval(interval);
             }
           }, 36);
-        }, headerFooterDelay + phraseDelay + 3 * 800 - 2700);
+        }, headerFooterDelay + phraseDelay + 3 * 800 - 3950);
       }
 
       navLinks.forEach(link => {
