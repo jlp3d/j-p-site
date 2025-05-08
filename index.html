@@ -47,7 +47,7 @@
   font-family: 'Pacifico', cursive;
   margin: 0;
   font-size: 1.25rem;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  transition: transform 0.8s ease, text-shadow 0.3s ease;
   color: #ebebeb;
 }
     nav {
@@ -89,14 +89,14 @@
   overflow: hidden;
   white-space: nowrap;
   display: inline-block;
-  transition: text-shadow 0.5s ease, color 0.5s ease;
+  transition: text-shadow 0.5s ease, color 0.5s ease, transform 0.8s ease;
   color: #000000;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-
 }
 
 #intro-text:hover {
   color: #777;
+  transform: scale(1.05);
 }
 
 
@@ -107,16 +107,17 @@
       width: 60%;
     }
     #role-text {
-      font-size: 1.75rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      min-height: 2em;
-      opacity: 1;
-      position: relative;
-    }
+  font-size: 1.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  min-height: 2em;
+  opacity: 1;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
 .phrase-box {
   padding: 0.75rem;
   border-radius: 50%; /* Makes the button circular */
@@ -153,22 +154,23 @@
 }
     .terminal:hover {
   box-shadow: 0 0 6px rgba(0, 255, 0, 0.4), 0 0 10px rgba(0, 204, 0, 0.3), 0 0 14px rgba(0, 170, 0, 0.2);
+  transform: scale(1.02);
 }
     .terminal {
-      max-width: 320px;
-      transition: all 0.4s ease;
-      margin: 2rem auto;
-      width: 320px;
-      background-color: #1e1e1e;
-      color: #00FF00;
-      font-family: monospace;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      text-align: left;
-      opacity: 0;
-      transition: opacity 1s ease-in;
-    }
+  max-width: 320px;
+  transition: all 0.4s ease, transform 0.4s ease;
+  margin: 2rem auto;
+  width: 320px;
+  background-color: #1e1e1e;
+  color: #00FF00;
+  font-family: monospace;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
     .terminal.visible {
       opacity: 1;
     }
@@ -265,8 +267,8 @@
 }
 }
   .mobile-spacer {
-    height: 2rem;
-  }
+  height: 0.5rem;
+}
 
   @media only screen and (max-width: 600px) {
     .mobile-spacer {
@@ -289,7 +291,7 @@
 
 
 header h1:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 @keyframes gradientBG {
@@ -355,13 +357,6 @@ header h1:hover {
     const headerFooterDelay = 2600;
     const phraseDelay = 500;
     const terminalText = `Last update: Thu May 8, 2025
------------
-➤ Home
-About Me
-Education
-Experience
-Skills
------------
 jonathanpedrero@website ~ % `;
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -517,3 +512,4 @@ roleObserver.observe(document.getElementById('terminal-window'));
   }
 });
 </script>
+  
