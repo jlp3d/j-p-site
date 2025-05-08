@@ -53,8 +53,8 @@
   font-family: 'Pacifico', cursive;
   margin: 0;
   font-size: 1.25rem;
-  transition: transform 0.8s ease, text-shadow 0.3s ease;
-  color: #ebebeb;
+  transition: transform 0.8s ease, text-shadow 0.3s ease, color 0.6s ease;
+  color: #ccc;
 }
     nav {
       display: flex;
@@ -101,7 +101,9 @@
 }
 
 #intro-text:hover {
-  color: #777;
+  color: #333333;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
   transform: scale(1.05);
 }
 
@@ -314,6 +316,7 @@
 header h1:hover {
   transform: scale(1.08);
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
 }
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
@@ -377,7 +380,7 @@ header h1:hover {
   <script>
     const headerFooterDelay = 2600;
     const phraseDelay = 500;
-    const terminalText = `Last update: Thu May 8, 2025
+    const terminalText = `Page last updated: Thu May 8, 2025
 jonathanpedrero@website ~ % `;
 
     document.addEventListener('DOMContentLoaded', () => {
