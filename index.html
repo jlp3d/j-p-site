@@ -11,9 +11,9 @@
       --accent: #222;
       --bg: #ebebeb;
       --highlight: #eee;
-      --mail-gradient: linear-gradient(135deg, #ddd, #f0f0f0);
-      --linkedin-gradient: linear-gradient(135deg, #ddd, #f0f0f0);
-      --instagram-gradient: linear-gradient(135deg, #ddd, #f0f0f0);
+      --mail-gradient: linear-gradient(135deg, #bbb, #ffb3a7);
+      --linkedin-gradient: linear-gradient(135deg, #bbb, #8ab4f8);
+      --instagram-gradient: linear-gradient(135deg, #bbb, #fcb045);
     }
     body {
   padding-top: 80px;
@@ -143,11 +143,20 @@
 .phrase-box.mail {
   background: var(--mail-gradient);
 }
+.phrase-box.mail:hover {
+  background: linear-gradient(135deg, #ddd, #ffc3b7);
+}
 .phrase-box.linkedin {
   background: var(--linkedin-gradient);
 }
+.phrase-box.linkedin:hover {
+  background: linear-gradient(135deg, #ddd, #a6c4f9);
+}
 .phrase-box.instagram {
   background: var(--instagram-gradient);
+}
+.phrase-box.instagram:hover {
+  background: linear-gradient(135deg, #ddd, #ffcb60);
 }
 .phrase-box img {
   width: 36px;
