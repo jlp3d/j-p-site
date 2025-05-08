@@ -9,13 +9,19 @@
     :root {
       --primary: #000;
       --accent: #222;
-      --bg: #fff;
+      --bg: #e0e0e0;
       --highlight: #eee;
       --mail-color: #ffd9b3;
       --linkedin-color: #cce6ff;
       --instagram-color: #f3c1f3;
     }
     body {
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  background-repeat: repeat;
+
+  background: linear-gradient(-45deg, #e0e0e0, #d5d5d5, #eeeeee, #cccccc);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
@@ -137,10 +143,10 @@
       transform: scale(1.05);
     }
     .terminal {
-      max-width: 360px;
+      max-width: 320px;
       transition: all 0.4s ease;
       margin: 2rem auto;
-      width: 460px;
+      width: 320px;
       background-color: #1e1e1e;
       color: #00FF00;
       font-family: monospace;
@@ -269,6 +275,11 @@ header h1:hover {
   transform: scale(1.1);
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 </style>
   
 </head>
@@ -327,13 +338,13 @@ header h1:hover {
     const headerFooterDelay = 2600;
     const phraseDelay = 500;
     const terminalText = `Last update: Tue May 6, 2025
--------------------------
-Home
+-----------
+➤ Home
 About Me
 Education
 Experience
 Skills
--------------------------
+-----------
 jonathanpedrero@website ~ % `;
 
     document.addEventListener('DOMContentLoaded', () => {
