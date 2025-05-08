@@ -204,16 +204,15 @@
   padding: 1rem;
   background: var(--accent);
   color: white;
-  margin-top: auto;
-  transform: translateY(100%);
-  animation: slideUp 1s ease-out forwards;
-  animation-delay: 2.6s;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
+  transform: translateY(100%);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 2.6s;
 }
     @keyframes slideUp {
       to { transform: translateY(0); }
@@ -328,7 +327,7 @@ header h1:hover {
       <a href="#skills">Skills</a>
     </nav>
   </header>
-  <section id="home" class="hero" style="height: calc(100vh - 160px); display: flex; flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; padding-top: 8vh; padding-bottom: 2vh;">
+  <section id="home" class="hero" style="height: calc(100vh - 160px); display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; text-align: center; padding: 0 1rem; overflow: hidden;">
     <h2 id="intro-text" style="font-family: 'TT Ramilas', sans-serif; margin-bottom: 0;"></h2>
     <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: -0.75rem; color: #666"></div>
     <div class="divider"></div>
