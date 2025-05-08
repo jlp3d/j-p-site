@@ -16,6 +16,7 @@
       --instagram-gradient: #ccc;
     }
     body {
+  padding-top: 80px;
   background: linear-gradient(to bottom, #f8f8f8, #eeeeee, #e0e0e0, #d1d1d1, #c2c2c2, #b3b3b3, #a4a4a4, #969696);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -27,9 +28,13 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth;}
     header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -194,15 +199,14 @@
       margin: 0;
     }
     footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--accent);
-      color: white;
-      margin-top: auto;
-      transform: translateY(100%);
-      animation: slideUp 1s ease-out forwards;
-      animation-delay: 2.6s;
-    }
+  text-align: center;
+  padding: 2rem;
+  background: var(--accent);
+  color: white;
+  margin-top: auto;
+  transform: translateY(100%);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 2.6s;}
     @keyframes slideUp {
       to { transform: translateY(0); }
     }
@@ -316,7 +320,7 @@ header h1:hover {
       <a href="#skills">Skills</a>
     </nav>
   </header>
-  <section id="home" class="hero" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 0 0.5rem 0; margin-top: -1rem;">
+  <section id="home" class="hero" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0.5rem 0; margin-top: 0.5rem;">
     <h2 id="intro-text" style="font-family: 'TT Ramilas', sans-serif; margin-bottom: 0;"></h2>
     <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: -0.75rem; color: #666"></div>
     <div class="divider"></div>
