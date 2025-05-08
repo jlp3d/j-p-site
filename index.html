@@ -16,22 +16,19 @@
       --instagram-gradient: #ccc;
     }
     body {
-  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
-  background-repeat: repeat;
-
-  background: linear-gradient(to bottom, #ffffff, #888888);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--primary);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-    }
+  background: linear-gradient(to bottom, #f8f8f8, #eeeeee, #e0e0e0, #d1d1d1, #c2c2c2, #b3b3b3, #a4a4a4, #969696);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--primary);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
     header {
       display: flex;
       justify-content: space-between;
@@ -85,15 +82,24 @@
       text-align: center;
     }
     #intro-text {
-      font-family: 'Playfair Display', serif;
-      margin-top: 0.5rem;
-      margin-bottom: 0.25rem;
-      font-size: 4.2rem;
-      overflow: hidden;
-      white-space: nowrap;
-      display: inline-block;
-      transition: text-shadow 0.4s ease;
-    }
+  font-family: 'Playfair Display', serif;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 4.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  transition: text-shadow 0.5s ease, color 0.5s ease;
+  color: #000000;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+
+}
+
+#intro-text:hover {
+  color: #777;
+}
+
+
     .divider {
       height: 1px;
       background-color: #444;
@@ -309,8 +315,8 @@ header h1:hover {
     </nav>
   </header>
   <section id="home" class="hero">
-    <h2 id="intro-text" style="font-family: 'TT Ramilas', sans-serif;"></h2>
-    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: 0;; color: #666"></div>
+    <h2 id="intro-text" style="font-family: 'TT Ramilas', sans-serif; margin-bottom: 0;"></h2>
+    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: -0.75rem; color: #666"></div>
     <div class="divider"></div>
     <div class="terminal" id="terminal-window">
       <div class="controls">
@@ -348,7 +354,7 @@ header h1:hover {
   <script>
     const headerFooterDelay = 2600;
     const phraseDelay = 500;
-    const terminalText = `Last update: Tue May 6, 2025
+    const terminalText = `Last update: Thu May 8, 2025
 -----------
 ➤ Home
 About Me
