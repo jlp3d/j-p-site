@@ -107,7 +107,7 @@
     .phrase-box {
       padding: 0.75rem;
       border-radius: 16px;
-      transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.24s ease, background-color 0.24s ease, box-shadow 0.24s ease;
       width: 64px;
       height: 64px;
       display: flex;
@@ -297,8 +297,7 @@ header h1:hover {
         <span class="green"></span>
       </div>
       <div class="output">
-Last update: Tue May 6, 2025<br>
-<span id="terminal-typewriter"></span><span id="terminal-input" contenteditable="true" spellcheck="false" style="outline: none; display: inline-block; min-width: 1ch; caret-color: #00FF00; white-space: pre-wrap; overflow-wrap: break-word;" onkeydown="if(event.key==='Enter'){event.preventDefault();}"> </span>
+<span id="terminal-typewriter"></span><span id="terminal-input" contenteditable="true" spellcheck="false" style="outline: none; display: inline-block; min-width: 1ch;" oninput="if(this.innerText.length > 12) this.innerText = this.innerText.slice(0, 12);"></span>
       </div>
     </div>
     <div class="divider"></div>
@@ -327,13 +326,14 @@ Last update: Tue May 6, 2025<br>
   <script>
     const headerFooterDelay = 2600;
     const phraseDelay = 500;
-    const terminalText = `Type tab name & Enter:
-Home 🏠
-About Me 🧔🏻‍♂️
-Education 📝
-Experience 💻 
-Skills 🛠️
-
+    const terminalText = `Last update: Tue May 6, 2025
+-------------------------
+Home
+About Me
+Education
+Experience
+Skills
+-------------------------
 jonathanpedrero@website ~ % `;
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -489,5 +489,3 @@ roleObserver.observe(document.getElementById('terminal-window'));
   }
 });
 </script>
-</body>
-</html>
