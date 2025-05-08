@@ -44,7 +44,7 @@
       padding: 1rem 2rem;
       transform: translateY(-100%);
       animation: slideDown 1s ease-out forwards;
-      animation-delay: 2.6s;
+      animation-delay: 1.0s;
     }
     @keyframes slideDown {
       to { transform: translateY(0); }
@@ -114,8 +114,8 @@
   margin: 1rem auto;
   width: 60%;
   opacity: 0;
-  animation: fadeInDivider 4s ease forwards;
-  animation-delay: 3s;
+  animation: fadeInDivider 1s ease forwards;
+  animation-delay: 1s;
 }
     #role-text {
   font-size: 1.75rem;
@@ -221,7 +221,7 @@
   margin-top: auto;
   transform: translateY(100%);
   animation: slideUp 1s ease-out forwards;
-  animation-delay: 2.6s;
+  animation-delay: 1s;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -426,7 +426,7 @@ jonathanpedrero@website ~ % `;
         rotatingText.style.opacity = '1';
         roleIndex = 1;
         setInterval(cycleRoles, 3500);
-      }, headerFooterDelay + 1000);
+      }, headerFooterDelay);
       roleObserver.disconnect();
     }
   });
@@ -474,7 +474,7 @@ roleObserver.observe(document.getElementById('terminal-window'));
           setTimeout(() => {
             span.style.opacity = '1';
             span.style.transform = 'translateX(0)';
-          }, headerFooterDelay + phraseDelay + index * 800);
+          }, headerFooterDelay + phraseDelay - 2000 + index * 800);
         });
       }
 
@@ -482,12 +482,12 @@ roleObserver.observe(document.getElementById('terminal-window'));
         if (terminalWindow) {
           terminalWindow.classList.add('visible');
         }
-      }, headerFooterDelay + phraseDelay + 3 * 800);
+      }, headerFooterDelay + phraseDelay - 1000);
 
       if (typeTarget) {
         setTimeout(() => {
-          let i = 0;
-          const interval = setInterval(() => {
+        let i = 0;
+        const interval = setInterval(() => {
           if (i < terminalText.length) {
               typeTarget.textContent += terminalText.charAt(i);
               i++;
@@ -495,7 +495,7 @@ roleObserver.observe(document.getElementById('terminal-window'));
               clearInterval(interval);
             }
           }, 36);
-        }, headerFooterDelay + phraseDelay + 3 * 800 + 1000);
+        }, headerFooterDelay + phraseDelay + 3 * 800 - 2700);
       }
 
       navLinks.forEach(link => {
