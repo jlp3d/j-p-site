@@ -9,17 +9,17 @@
     :root {
       --primary: #000;
       --accent: #222;
-      --bg: #e0e0e0;
+      --bg: #ebebeb;
       --highlight: #eee;
-      --mail-color: #ffd9b3;
-      --linkedin-color: #cce6ff;
-      --instagram-color: #f3c1f3;
+      --mail-gradient: #ccc;
+      --linkedin-gradient: #ccc;
+      --instagram-gradient: #ccc;
     }
     body {
   background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
   background-repeat: repeat;
 
-  background: linear-gradient(-45deg, #e0e0e0, #d5d5d5, #eeeeee, #cccccc);
+  background: linear-gradient(to bottom, #ffffff, #888888);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
       margin: 0;
@@ -47,11 +47,12 @@
       to { transform: translateY(0); }
     }
     header h1 {
-      font-family: 'Pacifico', cursive;
-      margin: 0;
-      font-size: 1.25rem;
-      transition: transform 0.3s ease, text-shadow 0.3s ease;
-    }
+  font-family: 'Pacifico', cursive;
+  margin: 0;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  color: #ebebeb;
+}
     nav {
       display: flex;
       gap: 1.5rem;
@@ -64,7 +65,7 @@
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
       transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
-      color: #fff;
+      color: #ebebeb;
       text-decoration: none;
       font-weight: 500;
     
@@ -95,7 +96,7 @@
     }
     .divider {
       height: 1px;
-      background-color: #ccc;
+      background-color: #444;
       margin: 1rem auto;
       width: 60%;
     }
@@ -110,38 +111,43 @@
       opacity: 1;
       position: relative;
     }
-    .phrase-box {
-      padding: 0.75rem;
-      border-radius: 16px;
-      transition: transform 0.24s ease, background-color 0.24s ease, box-shadow 0.24s ease;
-      width: 64px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      will-change: transform;
-    }
+.phrase-box {
+  padding: 0.75rem;
+  border-radius: 50%; /* Makes the button circular */
+  transition: transform 0.24s ease, background-color 0.24s ease, box-shadow 0.24s ease;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  overflow: hidden; /* Ensures child image stays within circle */
+}
     .phrase-box:hover {
       transform: scale(1.4) rotate(3deg);
       box-shadow: 0 0 10px rgba(100, 100, 100, 0.4), 0 0 20px rgba(100, 100, 100, 0.3), 0 0 30px rgba(100, 100, 100, 0.2);
     }
-    .phrase-box.mail {
-      background-color: var(--mail-color);
-    }
-    .phrase-box.linkedin {
-      background-color: var(--linkedin-color);
-    }
-    .phrase-box.instagram {
-      background-color: var(--instagram-color);
-    }
-    .phrase-box img {
-      width: 36px;
-      height: 36px;
-    }
+.phrase-box.mail {
+  background: var(--mail-gradient);
+}
+.phrase-box.linkedin {
+  background: var(--linkedin-gradient);
+}
+.phrase-box.instagram {
+  background: var(--instagram-gradient);
+}
+.phrase-box img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease;
+}
+
+.phrase-box:hover img {
+  transform: scale(1.3);
+}
     .terminal:hover {
-      box-shadow: 0 0 15px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 204, 0, 0.3), 0 0 45px rgba(0, 170, 0, 0.25);
-      transform: scale(1.05);
-    }
+  box-shadow: 0 0 6px rgba(0, 255, 0, 0.4), 0 0 10px rgba(0, 204, 0, 0.3), 0 0 14px rgba(0, 170, 0, 0.2);
+}
     .terminal {
       max-width: 320px;
       transition: all 0.4s ease;
@@ -242,10 +248,15 @@
     width: 56px;
     height: 56px;
   }
-  .phrase-box img {
-    width: 28px;
-    height: 28px;
-  }
+.phrase-box img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease;
+}
+
+.phrase-box:hover img {
+  transform: scale(1.3);
+}
 }
   .mobile-spacer {
     height: 2rem;
@@ -299,7 +310,7 @@ header h1:hover {
   </header>
   <section id="home" class="hero">
     <h2 id="intro-text" style="font-family: 'TT Ramilas', sans-serif;"></h2>
-    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: 0;; color: #888"></div>
+    <div id="rotating-monotext" style="font-family: monospace; font-size: 1.5rem; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; margin-top: 0;; color: #666"></div>
     <div class="divider"></div>
     <div class="terminal" id="terminal-window">
       <div class="controls">
@@ -311,7 +322,7 @@ header h1:hover {
 <span id="terminal-typewriter"></span><span id="terminal-input" contenteditable="true" spellcheck="false" style="outline: none; display: inline-block; min-width: 1ch;" oninput="if(this.innerText.length > 12) this.innerText = this.innerText.slice(0, 12);"></span>
       </div>
     </div>
-    <div class="divider"></div>
+    <div class="divider" style="background-color: #666;"></div>
     <div id="role-text"></div>
     <div class="mobile-spacer"></div>
   </section>
@@ -332,7 +343,7 @@ header h1:hover {
     <p class="under-construction">🚧 Under construction 🚧</p>
   </section>
   <footer>
-    &copy; 2025 Jonathan Pedrero. All rights reserved.
+    &copy; 2025 Jonathan Pedrero.
   </footer>
   <script>
     const headerFooterDelay = 2600;
