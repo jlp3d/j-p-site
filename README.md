@@ -1,4 +1,4 @@
-# Jonathan Pedrero – Personal Portfolio Website
+# Personal Portfolio Website
 
 Welcome to the source code for my personal portfolio website. This site is a simple, responsive, and animated web presence to showcase my career, skills, and experience in IT, security, and technology.
 
